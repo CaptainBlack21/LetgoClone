@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "LetgoClone",
+    "slug": "LetgoClone",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyD0rB3Dz__WYg62AuEjEutg-JdJyatZFMQ"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Uygulama harita bilgilerine erişmek için konumunuzu kullanıyor.",
+        "NSLocationAlwaysUsageDescription": "Uygulama arka planda konumunuzu kullanmak istiyor."
+      }
+      
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD0rB3Dz__WYg62AuEjEutg-JdJyatZFMQ"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
