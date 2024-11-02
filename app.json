@@ -14,7 +14,7 @@
     "ios": {
       "supportsTablet": true,
       "config": {
-        "googleMapsApiKey": "AIzaSyD0rB3Dz__WYg62AuEjEutg-JdJyatZFMQ"
+        "googleMapsApiKey": "Q"
       },
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Uygulama harita bilgilerine erişmek için konumunuzu kullanıyor.",
@@ -29,7 +29,7 @@
       },
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyD0rB3Dz__WYg62AuEjEutg-JdJyatZFMQ"
+          "apiKey": ""
         }
       }
     },
