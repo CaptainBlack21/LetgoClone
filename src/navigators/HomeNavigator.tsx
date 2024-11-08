@@ -5,7 +5,7 @@ import { TouchableOpacity, Image, TextInput, Text,SafeAreaView, View } from 'rea
 import CategoryFilterScreen from "../screens/CategoryFilterScreen"
 import ProductDetailsScreen from "../screens/ProductDetailsScreen"
 import {FontAwesome5, Ionicons,Entypo} from "@expo/vector-icons"
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation,getFocusedRouteNameFromRoute } from '@react-navigation/native'
 
 const Stack = createStackNavigator()
 
@@ -39,7 +39,21 @@ const CategoryHeaderComponent = () => {
     </SafeAreaView>
   )
 }
-function HomeNavigator() {
+function MyStack({navigation,route}) {
+
+  const tabHiddenRoutes = ["ProductDetails"];
+
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    console.log("Route Name is ",routeName)
+    if(tabHiddenRoutes.includes(routeName)){
+      navigation.setOptions({tabBarStyle: {display:'none'}});
+    }else {
+      console.log("Aç ",routeName)
+        navigation.setOptions({tabBarStyle: {display:'true'}});
+    }
+}, [navigation, route]);
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -63,7 +77,7 @@ function HomeNavigator() {
         </View>
       ),
       headerLeft:()=>(
-        <TouchableOpacity  style={{marginLeft:20,backgroundColor: "rgba(0,0,0,0.5)",height:36,width:36,flexDirection:"row",justifyContent:"center",alignItems:"center",borderRadius:18}}>
+        <TouchableOpacity onPress={()=>navigation.goBack()} style={{marginLeft:20,backgroundColor: "rgba(0,0,0,0.5)",height:36,width:36,flexDirection:"row",justifyContent:"center",alignItems:"center",borderRadius:18}}>
           <Entypo name="cross" size={24} color="#FEFDFC" />
         </TouchableOpacity>
       ),
@@ -84,4 +98,6 @@ function HomeNavigator() {
   )
 }
 
-export default HomeNavigator
+export default function HomeNavigator({navigation,route}){
+  return <MyStack navigation={navigation} route={route}/>
+}
