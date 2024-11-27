@@ -5,18 +5,32 @@ import { TouchableOpacity, Image, TextInput, Text, SafeAreaView, View } from 're
 import CategoryFilterScreen from "../screens/CategoryFilterScreen"
 import ProductDetailsScreen from "../screens/ProductDetailsScreen"
 import AuthenticationScreen from "../screens/AuthenticationScreen"
+import ProfileScreen from "../screens/ProfileScreen"
+
 
 import { FontAwesome5, Ionicons, Entypo } from "@expo/vector-icons"
 import { useNavigation, getFocusedRouteNameFromRoute } from '@react-navigation/native'
+import { getAuth } from 'firebase/auth';
 
 const Stack = createStackNavigator()
 const MainHeaderComponent = () => {
   const navigation = useNavigation()
 
+  const auth = getAuth();
+  const userData = auth.currentUser;
+
   return (
     <SafeAreaView style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10, marginVertical: 50 }}>
-      <TouchableOpacity onPress={() => navigation.navigate("Authentication")}>
-        <Image style={{ width: 38, height: 38, borderRadius: 19 ,borderWidth:1,borderColor:"gray",padding:2}} source={require("../../assets/user.png")} />
+      <TouchableOpacity onPress={() => {
+        if (userData) {
+          // Eğer userData mevcutsa HomeScreen'e git
+          navigation.navigate("Profile");
+        } else {
+          // Eğer userData yoksa AuthenticationScreen'e git
+          navigation.navigate("Authentication");
+        }
+      }}>
+        <Image style={{ width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderColor: "gray", padding: 2 }} source={require("../../assets/user.png")} />
       </TouchableOpacity>
       <TextInput
         placeholder='Ara...'
@@ -102,12 +116,28 @@ function MyStack({ navigation, route }) {
         component={AuthenticationScreen}
         options={{
           headerLeft: () => (
-            <TouchableOpacity style={{marginHorizontal:10}} onPress={() => navigation.goBack()}>
+            <TouchableOpacity style={{ marginHorizontal: 10 }} onPress={() => navigation.goBack()}>
               <Ionicons name="arrow-back" size={24} color="black" />
             </TouchableOpacity>
           ),
           headerTitle: () => (
             <Text style={{ color: "black", fontWeight: "bold", fontSize: 15 }}>Kayıt Ol</Text>
+          )
+
+
+        }}
+      />
+      <Stack.Screen
+        name='Profile'
+        component={ProfileScreen}
+        options={{
+          headerLeft: () => (
+            <TouchableOpacity style={{ marginHorizontal: 10 }} onPress={() => navigation.goBack()}>
+              <Ionicons name="arrow-back" size={24} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitle: () => (
+            <Text style={{ color: "black", fontWeight: "bold", fontSize: 15 }}>Profil</Text>
           )
 
 

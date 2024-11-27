@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { TextInput, Button, View, Dimensions, Text, Image, ScrollView, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { auth } from '../../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(false);
+  const navigation=useNavigation()
 
   // Kayıt işlemi
   const handleRegister = () => {
@@ -15,7 +18,7 @@ const RegisterScreen = () => {
         const user = userCredential.user;
         console.log('Kullanıcı kaydedildi: ', user);
         // Kayıt işlemi başarılı olduğunda bir Alert göster
-        Alert.alert("Başarı", "Kayıt başarılı!", [{ text: "Tamam" }]);
+        navigation.navigate('HomeScreen');
       })
       .catch((error) => {
         console.error(error.message);
@@ -31,6 +34,7 @@ const RegisterScreen = () => {
         console.log('Kullanıcı giriş yaptı: ', user);
         // Giriş işlemi başarılı olduğunda bir Alert göster
         Alert.alert("Başarı", "Giriş başarılı!", [{ text: "Tamam" }]);
+        navigation.navigate('Home');
       })
       .catch((error) => {
         console.error(error.message);
