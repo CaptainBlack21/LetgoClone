@@ -1,8 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './src/navigators/RootNavigator';
 import { LogBox } from 'react-native';
-LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-LogBox.ignoreAllLogs();//Ignore all log notifications
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './src/amplifyconfiguration.json';
+//import { withAuthenticator } from '@aws-amplify/ui-react-native';
+
+// LogBox'u kullanarak logları gizleme
+LogBox.ignoreLogs(['Warning: ...']);  // Belirli logları gizle
+LogBox.ignoreAllLogs();  // Tüm logları gizle
+
+// AWS Amplify yapılandırmasını yükleme
+Amplify.configure(amplifyconfig);
 
 export default function App() {
   return (
@@ -12,3 +20,5 @@ export default function App() {
   );
 }
 
+// Uygulamanıza giriş doğrulaması ekleyin
+// withAuthenticator(App);

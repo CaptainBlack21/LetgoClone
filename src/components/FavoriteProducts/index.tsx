@@ -6,13 +6,13 @@ import productassets from "../../../assets/products"
 import {Product} from "../../models"
 import FavoriteProductItem from "../../components/FavoriteProductItem"
 
-type favoriteProductsProps = {
-    favoriteProducts: Product[]
-  
-  }
+type FavoriteProductsType={
+    productArray:Product[]
+}
 
+function index({productArray}:FavoriteProductsType) {
 
-function index({favoriteProducts}:favoriteProductsProps) {
+   // console.log("The products x",products)
 
   return (
     <View style={styles.productsContainer}>
@@ -32,7 +32,7 @@ function index({favoriteProducts}:favoriteProductsProps) {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         >
-            {favoriteProducts.map((item) => {
+            {productArray.map((item) => {
                 return <FavoriteProductItem prodType='favorite' key={item.id} product={item}/>
             })}
         </ScrollView>

@@ -1,0 +1,43 @@
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  image: String!
+  images: [String!]!
+  brand: String!
+  price: Float!
+  rating: Float!
+  numReview: Int!
+  isFeatured: Boolean
+  name: String!
+  description: String!
+  countInStock: Int
+  category: Category @belongsTo
+}
+
+type Category @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  src: String!
+  products: [Product] @hasMany
+}
+
+type FavoriteProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  productID: ID!
+  product: Product @hasOne
+}
+
+type Message @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  image: String!
+  productName: String!
+  sellerName: String!
+  situation: String!
+  date: String!
+}
+ 

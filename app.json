@@ -6,6 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "otherConfig": {},
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -20,7 +22,6 @@
         "NSLocationWhenInUseUsageDescription": "Uygulama harita bilgilerine erişmek için konumunuzu kullanıyor.",
         "NSLocationAlwaysUsageDescription": "Uygulama arka planda konumunuzu kullanmak istiyor."
       }
-      
     },
     "android": {
       "adaptiveIcon": {
@@ -31,7 +32,8 @@
         "googleMaps": {
           "apiKey": ""
         }
-      }
+      },
+      "package": "com.omeryyagmur.LetgoClone"
     },
     "web": {
       "favicon": "./assets/favicon.png"

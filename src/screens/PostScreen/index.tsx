@@ -38,7 +38,9 @@ function index() {
                                 paddingVertical: 10,
                                 borderBottomWidth: index == 0 ? 3 : 0,
                                 borderBottomColor: "#F64454"
-                            }}>
+                            }}
+                            key={index}
+                            >
                                 <Text style={{
                                     color: index == 0 ? "#F64454" : "#797979",
                                     fontWeight: index == 0 ? "bold" : "500",

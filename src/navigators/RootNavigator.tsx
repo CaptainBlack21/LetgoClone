@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Foundation, Ionicons, MaterialCommunityIcons, AntDesign, FontAwesome } from "@expo/vector-icons"
 import HomeNavigator from './HomeNavigator';
 import PostNavigator from './PostNavigator';
+import SohbetNavigator from './SohbetNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -78,7 +79,7 @@ function RootNavigator() {
 
       <Tab.Screen
         name="Sohbet"
-        component={HomeNavigator}
+        component={SohbetNavigator}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="message-processing" size={24} color={color} />),
