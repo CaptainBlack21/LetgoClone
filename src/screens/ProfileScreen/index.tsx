@@ -23,7 +23,7 @@ const ProfileScreen = () => {
     signOut(auth)
       .then(() => {
         Alert.alert('Başarı', 'Oturum başarıyla kapatıldı.');
-        navigation.navigate('Home'); // Oturum kapatıldığında HomeScreen'e yönlendir.
+        navigation.navigate('Authentication'); // Oturum kapatıldığında HomeScreen'e yönlendir.
       })
       .catch((error) => {
         console.error(error);

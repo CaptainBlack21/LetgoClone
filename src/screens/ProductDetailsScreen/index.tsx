@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import ImageCarousel from "../../components/ImageCarousel";
 import { Product } from "../../models";
-import DetailsTextBox from "../../components/DetailsTextBox";
+import DetailTextBox from "../../components/DetailTextBox";
 import SellerProfile from "../../components/SellerProfile";
 import MappingComponent from "../../components/MappingComponent";
 import SocialMedias from "../../components/SocialMedias";
@@ -34,7 +34,7 @@ function index(props) {
         {/* Image Carousel*/}
         <ImageCarousel images={product.images} />
         <View style={{ paddingHorizontal: 20, paddingVertical: 14 }}>
-          <DetailsTextBox
+          <DetailTextBox
             price={product.price}
             name={product.name}
             description={product.description}

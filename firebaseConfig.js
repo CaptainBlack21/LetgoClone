@@ -4,7 +4,7 @@ import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDy92ObP4KJaFdlBfTX7luoABAx1Ix7g3c",
+  apiKey: "",
   authDomain: "letgoclone-54e22.firebaseapp.com",
   projectId: "letgoclone-54e22",
   storageBucket: "letgoclone-54e22.appspot.com", // storageBucket uzantısını düzelttim
