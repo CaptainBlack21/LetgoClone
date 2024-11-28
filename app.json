@@ -30,7 +30,7 @@
       },
       "config": {
         "googleMaps": {
-          "apiKey": ""
+          "apiKey": "Q"
         }
       },
       "package": "com.omeryyagmur.LetgoClone"
